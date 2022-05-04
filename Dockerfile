@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.15.4
 
 ENV MNT_POINT /var/s3fs
 
