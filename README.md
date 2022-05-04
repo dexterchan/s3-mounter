@@ -16,3 +16,6 @@ mount --bind /mnt/s3data /mnt/s3data
 mount --make-shared /mnt/s3data
 findmnt -o TARGET,PROPAGATION /mnt/s3data
 ```
+
+another example
+https://github.com/freegroup/kube-s3
