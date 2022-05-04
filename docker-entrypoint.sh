@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 set -o errexit
-set -o errtrace
+
 IFS=$'\n\t'
 
 export S3_ACL=${S3_ACL:-private}
