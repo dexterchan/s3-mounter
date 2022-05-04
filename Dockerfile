@@ -28,4 +28,4 @@ RUN apk --update add bash fuse libcurl libxml2 libstdc++ libgcc alpine-sdk autom
 RUN sed -i s/"#user_allow_other"/"user_allow_other"/g /etc/fuse.conf
 
 COPY docker-entrypoint.sh /
-CMD ["sh","/docker-entrypoint.sh"]
+CMD ["bash","/docker-entrypoint.sh"]
