@@ -6,3 +6,13 @@ Mount s3 buckets into pods in k8s.
 
 It is not working in k3s rancher.....
 failed to map the content to example pod
+
+Suggestion --- verified not working:
+https://icicimov.github.io/blog/virtualization/Kubernetes-shared-storage-with-S3-backend/
+IN the host,
+```
+mkdir /mnt/s3data
+mount --bind /mnt/s3data /mnt/s3data
+mount --make-shared /mnt/s3data
+findmnt -o TARGET,PROPAGATION /mnt/s3data
+```
