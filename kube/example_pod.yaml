@@ -5,11 +5,14 @@ metadata:
 spec:
   containers:
   - image: nginx
+    securityContext:
+      privileged: true
     name: s3-test-container
     volumeMounts:
     - name: mntdatas3fs
-      mountPath: /var/s3fs:shared
+      mountPath: /var/s3fs
+      #mountPath: /var/s3fs:shared
   volumes:
   - name: mntdatas3fs
     hostPath:
-      path: /mnt/s3data/data
+      path: /mnt/s3data
