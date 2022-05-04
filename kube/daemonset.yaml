@@ -16,6 +16,10 @@ spec:
       containers:
       - name: s3fuse
         image: pigpiggcp/s3-mounter:alpine
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh","-c","umount -f /var/s3fs"]
         securityContext:
           privileged: true
           capabilities:

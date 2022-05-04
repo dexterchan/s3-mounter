@@ -1,22 +1,31 @@
-FROM alpine:3.15.4
+###############################################################################
+# The FUSE driver needs elevated privileges, run Docker with --privileged=true
+###############################################################################
+
+FROM alpine:latest
 
 ENV MNT_POINT /var/s3fs
+ENV IAM_ROLE=none
+ENV S3_REGION ''
 
-ARG S3FS_VERSION=v1.86
+VOLUME /var/s3
 
-RUN apk --update --no-cache add fuse alpine-sdk automake autoconf libxml2-dev fuse-dev curl-dev git bash; \
+
+ARG S3FS_VERSION=v1.89
+
+RUN apk --update add bash fuse libcurl libxml2 libstdc++ libgcc alpine-sdk automake autoconf libxml2-dev fuse-dev curl-dev git; \
     git clone https://github.com/s3fs-fuse/s3fs-fuse.git; \
     cd s3fs-fuse; \
     git checkout tags/${S3FS_VERSION}; \
     ./autogen.sh; \
-    ./configure --prefix=/usr; \
+    ./configure --prefix=/usr ; \
     make; \
     make install; \
     make clean; \
     rm -rf /var/cache/apk/*; \
     apk del git automake autoconf;
 
-RUN mkdir -p "$MNT_POINT"
+RUN sed -i s/"#user_allow_other"/"user_allow_other"/g /etc/fuse.conf
 
-COPY run.sh run.sh
-CMD ./run.sh
+COPY docker-entrypoint.sh /
+CMD /docker-entrypoint.sh
