@@ -19,3 +19,7 @@ findmnt -o TARGET,PROPAGATION /mnt/s3data
 
 another example
 https://github.com/freegroup/kube-s3
+
+Next try:
+https://github.com/ctrox/csi-s3
+https://docs.aws.amazon.com/filegateway/latest/files3/using-csi-drivers.html
