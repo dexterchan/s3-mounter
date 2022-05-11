@@ -4,6 +4,10 @@ Mount s3 buckets into pods in k8s.
 
 [Here](https://blog.meain.io/2020/mounting-s3-bucket-kube/) is a blog post which explains it in detail.
 
+20220511
+It is working in AWS EKS
+
+20220501
 It is not working in k3s rancher.....
 failed to map the content to example pod
 
