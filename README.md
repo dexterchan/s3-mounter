@@ -2,7 +2,9 @@
 
 Mount s3 buckets into pods in k8s.
 
-[Here](https://blog.meain.io/2020/mounting-s3-bucket-kube/) is a blog post which explains it in detail.
+Credit:
+[Code based in meain/blog](https://blog.meain.io/2020/mounting-s3-bucket-kube/) explains it in detail.
+[Amazon CN blog of K8s s3fuse sharing](https://aws.amazon.com/cn/blogs/china/use-u3fs-as-shared-storage-to-kubernetes-pod/) refined the solution (written in Simplified Chinese)
 
 20220511
 It is working in AWS EKS
@@ -24,6 +26,6 @@ findmnt -o TARGET,PROPAGATION /mnt/s3data
 another example
 https://github.com/freegroup/kube-s3
 
-Next try:
+More advanced feature with Aws S3 File Gateway integration
 https://github.com/ctrox/csi-s3
 https://docs.aws.amazon.com/filegateway/latest/files3/using-csi-drivers.html
