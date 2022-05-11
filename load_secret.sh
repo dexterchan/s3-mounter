@@ -21,4 +21,4 @@ sed -i 's|${S3_BUCKET}|'${S3_BUCKET_BASE64}'|g' $conf_file
 sed -i 's|${AWS_KEY}|'${AWS_ACCESS_KEY_ID_BASE64}'|g' $conf_file
 sed -i 's|${AWS_SECRET_KEY}|'${AWS_SECRET_ACCESS_KEY_BASE64}'|g' $conf_file
 
-kubectl apply -f $conf_file
+kubectl create -f $conf_file
